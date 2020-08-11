@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class Exercise2_2{
     public static void main(String[] args){
         final double PI = 3.14159; //Declare a constant
-        System.out.println("Test");
         Scanner input = new Scanner(System.in);
 
         //Prompt the user for a radius.
