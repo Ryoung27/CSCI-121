@@ -1,7 +1,9 @@
 import java.util.Scanner;
 public class Exercise2_1{
     public static void main(String[] args){
-        System.out.println("TEST");
+
+        final double FRACTION = (9.0/5); //Declare a constant
+        final double THIRTY_TWO = 32; // Another exercise
 
         //Create a scanner object.
         Scanner input = new Scanner(System.in);
@@ -10,8 +12,8 @@ public class Exercise2_1{
         System.out.print("Please enter a temp in celcius, number only: ");
         double celcius = input.nextDouble();
 
-        double fahrenheit = (9.0/5) * celcius + 32;
+        double fahrenheit = FRACTION * celcius + THIRTY_TWO;
 
-        System.out.print(fahrenheit);
+        System.out.println(fahrenheit);
     }
 }
