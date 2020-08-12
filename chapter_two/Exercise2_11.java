@@ -5,7 +5,7 @@ public class Exercise2_11{
         // Create a scanner object.
         Scanner input = new Scanner(System.in);
 
-        // Enter annual interest rate in percentage, e.g., 7.25%
+        // Enter a number of years.
         System.out.print("Please enter the number of years: ");
         int years = input.nextInt();
 
