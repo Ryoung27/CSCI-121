@@ -19,9 +19,20 @@ public class Ronnie_Young_Project4 {
         // Create a Scanner Object
         Scanner input = new Scanner(System.in);
 
-        // Prompt the user to input a score (between 0 and 100, inclusive).
+        // Prompt the user to input a binary digit).
         System.out.print("Please enter a binary digit: ");
+        //Part - 1 :    Directly use the Java built-in method. In this case, only couple lines of code. Hint: Study Integer class in Java.  (20%)
+        // String binaryInput =input.nextLine();
+        // System.out.println("Output: "+ Double.parseDouble(binaryInput));
+
+        //Part - 2:
+        //Using the Scanner class, the user input should be  a Binary String data type.
         String binaryInput =input.nextLine();
-        System.out.println("Output: "+ Double.parseDouble(binaryInput));
+        if(binaryInput.length() < 1){
+            System.out.println("You have to input atleast one number.");
+        }
+        else{
+            System.out.println("Your binary string converted to a double is "+ Double.parseDouble(binaryInput));
+        }
     }
 }
