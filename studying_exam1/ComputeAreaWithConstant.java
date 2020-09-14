@@ -8,7 +8,7 @@ public class ComputeAreaWithConstant{
         System.out.print("Please enter a radius: ");
         double radius = input.nextDouble();
 
-        double area = radius * radius * 3.14159;
+        double area = radius * radius * PI;
 
         System.out.print("The area for the circle of radius " + radius + " is " + area);
     }
