@@ -23,7 +23,7 @@ public class Ronnie_Young_Project5 {
 
         //Principle, Term(in year), Quoted Interest Rate
         int principle, term, totalTermInMonths, counter = 0;
-        double interestRate, monthlyPayment, totalInterest = 0.0, endOfMonthBalance = 0.0, totalOwed = 0.0;
+        double interestRate, monthlyPayment, totalInterest = 0.0, endOfMonthBalance = 0.0, totalOwed = 0.0, principlePayment = 0.0, interestPayment = 0.0;
         char runAnother = 'Y';
 
         System.out.println("Please enter your principle, term, and interest rate: ");
@@ -40,7 +40,7 @@ public class Ronnie_Young_Project5 {
         totalOwed = principle + (principle * interestRate);
 
         // System.out.println(monthlyPayment);
-        System.out.println("Month       " + "Payment      " + "Total Interest       " + "Balance       ");
+        System.out.println("Month       " + "Payment      " + "Total Interest       " + "Balance             " + "Principal Payment       " + "Interest Payment      ");
 
         //Do While Loop
         // do{
@@ -72,7 +72,7 @@ public class Ronnie_Young_Project5 {
         //         }
 
         //         totalInterest += monthlyPayment * interestRate;
-        //         System.out.println("  " + counter + "        $" + df.format(monthlyPayment) +  "            $" + df.format(totalInterest)  + "               "+ df.format(totalOwed));
+        //         System.out.printf("  " + i + "        $%.2f          $%.2f            $%.2f           $%.2f             $%.2f\n", monthlyPayment, totalInterest, totalOwed, principlePayment, interestPayment);
         //     } while(counter < totalTermInMonths);
         //     System.out.println("Would you like to run this again?");
         //     runAnother = input.next().charAt(0);
@@ -94,28 +94,33 @@ public class Ronnie_Young_Project5 {
         //     }
 
         //     totalInterest += monthlyPayment * interestRate;
-        //     System.out.println("  " + counter + "        $" + df.format(monthlyPayment) +  "            $" + df.format(totalInterest)  + "               "+ df.format(totalOwed));
+        //     System.out.printf("  " + i + "        $%.2f          $%.2f            $%.2f           $%.2f             $%.2f\n", monthlyPayment, totalInterest, totalOwed, principlePayment, interestPayment);
         // }
 
 
 
         // For loop structure.
-        // for(int i = 1; i <= totalTermInMonths; i++){
-        //     monthlyPayment = principle * (interestRate/12) * Math.pow(1 + (interestRate/12), totalTermInMonths)/(Math.pow(1 + (interestRate/12), totalTermInMonths) - 1);
+        // Create a for loop starting at 1 and incrementing by 1 for the total months of the loan, I started at 1 to use it as the proper month counter.
+        for(int i = 1; i <= totalTermInMonths; i++){
+            // Calcuate the monthly payment.
+            monthlyPayment = principle * (interestRate/12) * Math.pow(1 + (interestRate/12), totalTermInMonths)/(Math.pow(1 + (interestRate/12), totalTermInMonths) - 1);
+            // If the final amount owed is less than the monthly payment, that's all that is left to charge.
+            if(totalOwed - monthlyPayment < 0){
+                totalOwed = totalOwed;
+                monthlyPayment = totalOwed;
+            }
+            else{
+                totalOwed = totalOwed - monthlyPayment;
+            }
 
-        //     if(totalOwed - monthlyPayment < 0){
-        //         totalOwed = totalOwed;
-        //         monthlyPayment = totalOwed;
-        //     }
-        //     else{
-        //         totalOwed = totalOwed - monthlyPayment;
-        //     }
+            totalInterest += monthlyPayment * interestRate;
 
-        //     totalInterest += monthlyPayment * interestRate;
+            interestPayment = monthlyPayment * interestRate;
 
+            principlePayment = monthlyPayment - interestPayment;
 
-        //     System.out.println("  " + i + "        $" + df.format(monthlyPayment) +  "            $" + df.format(totalInterest)  + "               "+ df.format(totalOwed));
-        // }
+            System.out.printf("  " + i + "        $%.2f          $%.2f            $%.2f           $%.2f             $%.2f\n", monthlyPayment, totalInterest, totalOwed, principlePayment, interestPayment);
+        }
 
     }
 }
