@@ -18,6 +18,7 @@ public class Ronnie_Young_Project7 {
         // Create a Scanner Object
         Scanner input = new Scanner(System.in);
         int user_input_key;
+
         //1. Declare an	int	array of size 10
         // 2. Initialize	the	array	by	calling initializeArray	function
         int[] sample_array = initializeArray();
@@ -53,7 +54,7 @@ public class Ronnie_Young_Project7 {
         printArray(sample_array);
     }
 
-    //	assign	each element in array with a random number
+    // assign each element in array with a random number
     //between 1 and	100, inclusive
     public static int[] initializeArray(){
         int[] sample_array = new int[10];
