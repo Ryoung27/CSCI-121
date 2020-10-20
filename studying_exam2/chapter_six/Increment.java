@@ -5,10 +5,19 @@ public class Increment{
         increment(x);
         System.out.println("Back out of the method " + x);
         increment(x);
+        System.out.println("Decrementing in Main: ");
+        decrement(x);
     }
 
     public static void increment(int x){
         x++;
         System.out.println("x inside the method is " + x);
+        System.out.println("Decrement inside of increment method");
+        decrement(x);
+    }
+
+    public static void decrement(int x){
+        x--;
+        System.out.println("decrementing x: " + x);
     }
 }
