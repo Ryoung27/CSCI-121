@@ -97,11 +97,11 @@ public class Ronnie_Young_Project9 {
 
 
         //create an array of all test temperatures
-        Temperature[] temperatures = {temperature_one,temperature_two,temperature_three,temperature_four};
+        Temperature[] temperatures_array = {temperature_one,temperature_two,temperature_three,temperature_four};
 
         //loops through temperatures and compares them using boolean functions
-        for (int i = 0; i < temperatures.length ; i++) {
-            for (int j = i + 1; j < temperatures.length; j++) {
+        for (int i = 0; i < temperatures_array.length ; i++) {
+            for (int j = i + 1; j < temperatures_array.length; j++) {
                 System.out.println("Temperature " + (i+1) + " is equal to Temperature " + (j+1) +": "
                         + temperatures[i].equals(temperatures[j]));
                 System.out.println("Temperature " + (i+1) + " is less than Temperature " + (j+1) +": "
