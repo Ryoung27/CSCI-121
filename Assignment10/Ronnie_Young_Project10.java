@@ -17,44 +17,64 @@ diagram.	No	built-in	String,	StringBuffer	related	classes	are	allowed.
     public static void main(String[] args){
 	/** Main method */
 		// Create to char arrays
-		char[] test = {'T', 'e', 'S', 't'};
-		char[] test2 = {'T', 'e', 'S', 't', '2'};
+		char[] test = {'T', 'e', 's', 'T'};
+        char[] test2 = {'T', 'e', 's', 'T', '2'};
 
         // Create two MyString objects
         // MyString(chars: char[])
 		MyString string = new MyString(test);
-		MyString string2 = new MyString(test2);
+        MyString string2 = new MyString(test2);
+        MyString string3 = new MyString(test2);
 
         // Test charAt()
         // charAt(i:int):char
 		System.out.print("\nCharacter at index 3 of string: "
-			+ string.charAt(3));
+            + string.charAt(3));
+
+        System.out.print("\nCharacter at index 0 of string (second test): "
+			+ string2.charAt(3));
 
         // Test the length of string
         // length():int
-		System.out.print("\nLength of MyString: " + string.length());
+        System.out.print("\nLength of MyString: " + string.length());
+
+        System.out.print("\nLength of MyString (second test): " + string2.length());
 
 
         // Test substring
         // substring(begin:int, end:int):MyString
-		System.out.print("\nSubstring from index 2 to 4 of MyString: ");
-		MyString substr = string.substring(2,4);
+		System.out.print("\nSubstring from index 0 to 3 of MyString: ");
+		MyString substr = string.substring(0,3);
 		for (int i = 0; i < substr.length(); i++) {
 			System.out.print(substr.charAt(i));
+        }
+		System.out.print("\nSubstring from index 0 to 4 of MyString (second test): ");
+		MyString substr2 = string2.substring(0,4);
+		for (int i = 0; i < substr2.length(); i++) {
+			System.out.print(substr2.charAt(i));
 		}
 
         // Test string as lowercase:"
         // toLowerCase():MyString
-		System.out.print("\nMyString object 1 to lowercase: ");
+		System.out.print("\nMyString to lowercase: ");
 		MyString lower = string.toLowerCase();
+		for (int i = 0; i < lower.length(); i++) {
+			System.out.print(lower.charAt(i));
+        }
+
+		System.out.print("\nMyString to lowercase (second test): ");
+		MyString lower2 = string2.toLowerCase();
 		for (int i = 0; i < lower.length(); i++) {
 			System.out.print(lower.charAt(i));
 		}
 
         // Test if string is equal to string1
         // equals(other:MyString):Boolean
-		System.out.print("\nString is equal to string2? "
-			+ string.equals(string2));
+		System.out.print("\nString is equal to string2: "
+            + string.equals(string2));
+
+            System.out.print("\nString is equal to string2 (second test, should return true): "
+			+ string2.equals(string3));
 
         // Test the integer 20 as a string object
         // valueOf(i:int):MyString
@@ -62,6 +82,12 @@ diagram.	No	built-in	String,	StringBuffer	related	classes	are	allowed.
 		MyString value = string.valueOf(20);
 		for (int i = 0; i < value.length(); i++) {
 			System.out.print(value.charAt(i));
+        }
+
+		System.out.print("\nDisplay the integer 120 as a MyString object: ");
+		MyString value2 = string2.valueOf(120);
+		for (int i = 0; i < value2.length(); i++) {
+			System.out.print(value2.charAt(i));
 		}
     }
 }
