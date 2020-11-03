@@ -15,33 +15,54 @@ diagram.	No	built-in	String,	StringBuffer	related	classes	are	allowed.
 
  public class Ronnie_Young_Project10{
     public static void main(String[] args){
-        MyString mystring_one = new MyString(new char[]{'T','e','s','T'});
+	/** Main method */
+		// Create to char arrays
+		char[] test = {'T', 'e', 'S', 't'};
+		char[] test2 = {'T', 'e', 'S', 't', '2'};
 
-        // Print out the string object.
-        System.out.println(mystring_one);
+        // Create two MyString objects
+        // MyString(chars: char[])
+		MyString string = new MyString(test);
+		MyString string2 = new MyString(test2);
 
-        // Print out the letter at index by calling charAt()
-        System.out.println(mystring_one.charAt(0));
-        System.out.println(mystring_one.charAt(1));
-        System.out.println(mystring_one.charAt(2));
-        System.out.println(mystring_one.charAt(3));
+        // Test charAt()
+        // charAt(i:int):char
+		System.out.print("\nCharacter at index 3 of string: "
+			+ string.charAt(3));
 
-        // Print out the length of myString
-        System.out.println(mystring_one.length());
+        // Test the length of string
+        // length():int
+		System.out.print("\nLength of MyString: " + string.length());
+
 
         // Test substring
-        System.out.println(mystring_one.substring(1, 2));
+        // substring(begin:int, end:int):MyString
+		System.out.print("\nSubstring from index 2 to 4 of MyString: ");
+		MyString substr = string.substring(2,4);
+		for (int i = 0; i < substr.length(); i++) {
+			System.out.print(substr.charAt(i));
+		}
 
-        // Test toLowerCase of characters in objects
-        System.out.println(mystring_one.toLowerCase().charAt(0));
-        System.out.println(mystring_one.toLowerCase().charAt(3));
+        // Test string as lowercase:"
+        // toLowerCase():MyString
+		System.out.print("\nMyString object 1 to lowercase: ");
+		MyString lower = string.toLowerCase();
+		for (int i = 0; i < lower.length(); i++) {
+			System.out.print(lower.charAt(i));
+		}
 
-        // Test equals on object
-        System.out.println(mystring_one.equals("Test"));
-        System.out.println(mystring_one.equals("TesT"));
-        System.out.println(mystring_one.equals("tesT"));
+        // Test if string is equal to string1
+        // equals(other:MyString):Boolean
+		System.out.print("\nString is equal to string2? "
+			+ string.equals(string2));
 
-        System.out.println(mystring_one.valueOf(12));
+        // Test the integer 20 as a string object
+        // valueOf(i:int):MyString
+		System.out.print("\nDisplay the integer 20 as a MyString object: ");
+		MyString value = string.valueOf(20);
+		for (int i = 0; i < value.length(); i++) {
+			System.out.print(value.charAt(i));
+		}
     }
 }
 class MyString{
@@ -58,8 +79,8 @@ class MyString{
     }
 
     // +charAt(i: int) : char
-    public char charAt(int index){
-        return string[index];
+    public char charAt(int i){
+        return string[i];
     }
 
     // +length():int
@@ -93,20 +114,19 @@ class MyString{
 
     // +equals(other: MyString) : Boolean
     public boolean equals(MyString s){
-        boolean isEqual = true;
 
 		if (s.length() != stringLength) {
-            isEqual = false;
+            return false;
 		}
 		else{
             for (int i = 0; i < stringLength; i++) {
                 if(s.string[i] != string[i]){
-                    isEqual = false;
+                    return false;
 				}
 			}
 		}
 
-		return isEqual;
+		return true;
     }
 
     // +valueOf(i:	int) : MyString
