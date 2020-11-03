@@ -158,10 +158,10 @@ class MyString{
     // +valueOf(i:	int) : MyString
     public static MyString valueOf(int i){
         int digits = 1;
-		int tempVal = i;
+		int temp = i;
 
-		while(tempVal > 0){
-            tempVal /= 10;
+		while(temp > 0){
+            temp /= 10;
 			digits++;
 		}
 
