@@ -9,32 +9,58 @@
 * @author: Ronnie Young
 * @version 11.10.20
 */
-
+import java.util.ArrayList;
 public class Ronnie_Young_Project11{
     public static void main(String[] args){
+        // Declare an array of Account titled accounts.
+        ArrayList<Account> accounts = new ArrayList<>();
         // Create Account, SavingsAccount and Checking Account objects
 		Account account = new Account(1122, 20000);
-		SavingsAccount savings = new SavingsAccount(1001, 20000);
-		CheckingAccount checking = new CheckingAccount(1004, 20000);
+
+        //Initialize every element in accounts array.
+        //Make accounts[0] and accounts[1] be CheckingAccount and accounts[2] and accounts[3] be SavingsAccount
+        SavingsAccount savings = new SavingsAccount(01, 20000);
+        SavingsAccount savings2 = new SavingsAccount(11, 20000);
+        accounts.add(savings);
+        accounts.add(savings2);
+        CheckingAccount checking = new CheckingAccount(21, 20000);
+        CheckingAccount checking2 = new CheckingAccount(20, 20000);
+        accounts.add(checking);
+        accounts.add(checking2);
+
+        // System.out.println("This is it " + accounts.get(1));
 		// Set interest rate of 4.5%
 		account.setInterestRate(4.5);
 		savings.setInterestRate(4.5);
 		checking.setInterestRate(4.5);
 
-		// Withdraw $2,500
-		account.withdraw(2500);
-		savings.withdraw(2500);
-		checking.withdraw(2500);
+        // Make deposit and withdraw for each account and print out the account information see the result.
 
-		// Deposit $3,000
-		account.deposit(3000);
-		savings.deposit(3000);
-		checking.deposit(3000);
+        //Acount 1 withdraw and deposit
+        accounts.get(0).withdraw(2500);
+        System.out.println(accounts.get(0).toString());
+        accounts.get(0).deposit(3000);
+        System.out.println(accounts.get(0).toString());
 
-		// Invoke toString methods
-		System.out.println(account.toString());
-		System.out.println(savings.toString());
-		System.out.println(checking.toString());
+        //Acount 2 withdraw and deposit
+        accounts.get(1).withdraw(2500);
+        System.out.println(accounts.get(1).toString());
+        accounts.get(1).deposit(3000);
+        System.out.println(accounts.get(1).toString());
+
+        //Acount 3 withdraw and deposit
+        accounts.get(2).withdraw(2500);
+        System.out.println(accounts.get(2).toString());
+        accounts.get(2).deposit(3000);
+        accounts.get(2).addInterest();
+        System.out.println(accounts.get(2).toString());
+
+        //Acount 4 withdraw and deposit
+        accounts.get(3).withdraw(2500);
+        System.out.println(accounts.get(3).toString());
+        accounts.get(3).deposit(3000);
+        accounts.get(3).addInterest();
+        System.out.println(accounts.get(3).toString());
 
     }
 }
@@ -100,19 +126,17 @@ class Account {
         this.InterestRate = (1 + (InterestRate / 100));
 	}
 
-
-
 	// return interest rate
 	public double getInterestRate() {
         return InterestRate;
     }
+
+    public void addInterest()
+    {
+       double interest = getBalance() * this.InterestRate / 100;
+       deposit(interest);
+    }
 }
-
-
-
-
-
-
 
 class CheckingAccount
 	extends Account {
